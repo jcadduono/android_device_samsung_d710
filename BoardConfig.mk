@@ -1,0 +1,53 @@
+USE_CAMERA_STUB := true
+
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := smdk4210
+
+# Platform
+TARGET_BOARD_PLATFORM := exynos4210
+TARGET_BOARD_PLATFORM_GPU := mali-400mp4
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a9
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+ARCH_ARM_HAVE_NEON := true
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+
+BOARD_BOOTIMAGE_PARTITION_SIZE :=    	0x00800000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE :=	0x00800000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE :=  	0x20000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE :=	0x80000000
+BOARD_CACHEIMAGE_PARTITION_SIZE :=   	0x13800000
+BOARD_FLASH_BLOCK_SIZE := 4096
+
+TARGET_PREBUILT_KERNEL := device/samsung/d710/zImage
+
+# Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/d710/bootimg.mk
+
+# TWRP specific build flags
+TW_THEME := portrait_mdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/s3c-usbgadget/gadget/lun%d/file"
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/samsung-pd.2/s3cfb.0/spi_gpio.3/spi_master/spi3/spi3.0/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 162
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_NO_EXFAT := true
+TW_MTP_DEVICE := "/dev/mtp_usb"

@@ -1,0 +1,10 @@
+/boot		emmc		/dev/block/platform/dw_mmc/by-name/KERNEL
+/recovery		emmc		/dev/block/platform/dw_mmc/by-name/RECOVERY
+/modem		emmc		/dev/block/platform/dw_mmc/by-name/MODEM			flags=backup=1;display="Modem"
+/system		ext4		/dev/block/platform/dw_mmc/by-name/FACTORYFS
+/data		ext4		/dev/block/platform/dw_mmc/by-name/DATAFS			flags=encryptable=/efs/metadata
+/cache		ext4		/dev/block/platform/dw_mmc/by-name/CACHE
+/efs			ext4		/dev/block/platform/dw_mmc/by-name/EFS				flags=backup=1;display="EFS"
+/sdcard		vfat		/dev/block/platform/dw_mmc/by-name/UMS				flags=display="Internal Storage";storage;wipeingui
+/external_sd	vfat		/dev/block/cyasblkdevblk0p1 /dev/block/cyasblkdevblk0	flags=display="Micro SDcard";storage;wipeingui;removable
+/usbstorage	vfat		/dev/block/sda1 /dev/block/sda					flags=display="USB Storage";storage;wipeingui;removable
